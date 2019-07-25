@@ -1,4 +1,6 @@
 
+from dotenv import load_dotenv
+load_dotenv()
 from AlunoOnlineCrawler import AlunoOnlineCrawler
 from GradeMaker import exportarExcel
 from src.Aluno import Aluno

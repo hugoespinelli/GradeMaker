@@ -1,5 +1,6 @@
 
 # Excluding excel docs
 *.xlsx
+.env
 idea/
 __pycache__/

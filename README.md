@@ -12,9 +12,10 @@ versão 3.0+ instalado na sua máquina.
 O programa utiliza duas dependências:
 - selenium
 - openpyxl
+- python-dotenv
 
 Para instalar, vá no seu prompt de comando e digite: <br>
-`$ pip install openpyxl selenium`
+`$ pip install openpyxl selenium python-dotenv`
 
 Para rodar o selenium, você precisará de um driver para que o
 scapper possa executar no navegador.
@@ -22,3 +23,11 @@ Acesse o site:<br>
 https://selenium-python.readthedocs.io/installation.html
 Baixe o driver para seu navegador de preferência e
 cole na sua pasta raiz do python/script
+
+Após isso, você deverá criar um arquivo .env na raiz do projeto
+com as informações de matricula e senha do aluno online
+desse modo.
+```
+MATRICULA=MINHA_MATRICULA
+SENHA=MINHA_SENHA
+```
