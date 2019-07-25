@@ -1,0 +1,5 @@
+
+# Excluding excel docs
+*.xlsx
+idea/
+__pycache__/
