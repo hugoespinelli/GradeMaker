@@ -2,5 +2,5 @@
 # Excluding excel docs
 *.xlsx
 .env
-idea/
+.idea/
 __pycache__/
