@@ -21,7 +21,7 @@ class AlunoOnlineCrawler():
 		senha = self.driver.find_element_by_name('senha')
 		senha.clear()
 		senha.send_keys(self.aluno.password)
-		senha.send_keys(Keys.RETURN);
+		senha.send_keys(Keys.RETURN)
 
 	def getCodigos(self):
 		if (self.aluno.buscaPorPeriodo):
@@ -32,8 +32,12 @@ class AlunoOnlineCrawler():
 	def salvaInfoDisciplinas(self):
 		self.logarPaginaPrincipal()
 		codigos = self.getCodigos()
+		print(codigos)
+		print('chegou dps codigo')
 		turmas = self.getTurmasBy(codigos)
+		print('chegou dps turma')
 		self.getAllProfessoresAndDisciplinas(turmas)
+		print('chegou dps professores e disciplinas')
 		self.salvarArquivos(turmas)
 		self.driver.close()
 
@@ -43,26 +47,26 @@ class AlunoOnlineCrawler():
 		nome_disciplina = nome_disciplina.replace("Disciplina:", "")
 		tbody = self.driver.find_element_by_xpath("/html/body/table/tbody/tr[3]/td/div/table")
 		turma_escolhida = str(int(turma['turma']) + 1)
-		professor = tbody.find_element_by_xpath('/html/body/table/tbody/tr[3]/td/div/table/tbody/tr['+turma_escolhida+']/td/div/div[3]/div[9]/div[2]') 
+		professor = tbody.find_element_by_xpath('/html/body/table/tbody/tr[3]/td/div/table/tbody/tr['+turma_escolhida+']/td/div/div[2]/div[8]/div[2]')
 		turma['professor'] = professor.text
 		turma['disciplina'] = nome_disciplina
-		return turma;
+		return turma
 
 
 	def getCodigosDisciplinasAlunoOnline(self, periodos):
 		disciplinas = []
 		self.driver.get(REQUISITOS_URL)
-
-		tbody = self.driver.find_element_by_xpath("//*[@id='smallfont']/tbody/tr[1]/td/table/tbody")
+		tbody = self.driver.find_element_by_xpath("/html/body/table/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody")
 		trs = tbody.find_elements_by_tag_name('tr')
 		trs.pop(0)
 
 		for tr in trs:
 			tds = tr.find_elements_by_tag_name('td')
-			if tds[3].text in periodos:
+			if int(tds[3].text) in periodos:
 				matchObj = re.search("(\d\d\d\d\d)", tds[0].text)
 				disciplinas.append(matchObj.group())
 
+		print(disciplinas)
 		return disciplinas
 
 

@@ -9,18 +9,18 @@ from consts import MATRICULA, SENHA
 aluno = Aluno(MATRICULA, SENHA)
 # Botar os codigos das disciplinas que você quer cursar aqui
 aluno.setCodigos(
+	"01913",
+	"05153",
+	"05105",
+	"05253",
 	"05222",
-	"03787",
-	"04049",
-	"05038",
-	"04516",
-	"04314",
 	"01840",
-	"05153"
+	"04192",
+	"04386"
 )
 # Caso queira puxar o máximo de matérias por periodo, descomente o código abaixo e comente
 # o código acima
-# aluno.setPeriodos()
+# aluno.setPeriodos([1, 5, 6, 7, 8])
 crawlerAlunoOnline = AlunoOnlineCrawler(aluno)
 crawlerAlunoOnline.salvaInfoDisciplinas()
 exportarExcel()

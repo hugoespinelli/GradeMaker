@@ -8,7 +8,7 @@ class Aluno():
 		self.buscaPorCodigo = False
 		self.buscaPorPeriodo = False
 
-	def setPeriodos(self, *periodos):
+	def setPeriodos(self, periodos):
 		self.periodos = periodos
 		self.buscaPorPeriodo = True
 		self.buscaPorCodigo = False
